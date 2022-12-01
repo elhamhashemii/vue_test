@@ -7,13 +7,13 @@
         <button @click="sortDesc">▼</button>
       </div>
 
-    <!-- Bug fixed here, by replacing profile itself instead of index into the key of for loop -->
+    <!-- Bug fixed here, by replacing profile.id instead of index into the key of for loop -->
     <!-- the problem is that after doing the filter, the index of item with comment will not change, but the content will be replaced -->
     <!-- For example when we enter the comment for index 0 (first item) and then fiter the list, the content of items will replace each other -->
     <!-- But the index is still the same, so input index is still 0. this is why that bug had happened -->
       <ProfileCard
         v-for="profile in profiles"
-        :key="profile"
+        :key="profile.id"
         :profile="profile"
         class="profile"
       />
